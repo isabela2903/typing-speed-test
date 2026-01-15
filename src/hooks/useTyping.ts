@@ -145,6 +145,8 @@ export const useTyping = () => {
     if (isFinished) return;
     const key = event.key;
 
+    event.preventDefault();
+
     const isAllowed =
       key === " " || key === "Backspace" || /^[\p{L}\p{N}\p{P}]$/u.test(key);
 
