@@ -1,23 +1,31 @@
 import { useEffect, useRef } from "react";
-import "./PassageArea.css"
+import "./PassageArea.css";
 
 interface PassageAreaProps {
   currentPassage: string;
   hasStarted: boolean;
   startHandleClick: () => void;
-  handleKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
+  handleKeyDown: (event: React.KeyboardEvent<HTMLElement | HTMLInputElement>) => void;
   sectionRef: React.RefObject<HTMLElement | null>;
   keyPressed: string[];
   isFinished: boolean;
 }
 
-const getStatusClass = (typedChar: string | undefined, expectedChar: string) => {
+const getStatusClass = (
+  typedChar: string | undefined,
+  expectedChar: string
+) => {
   if (typedChar === undefined) return;
   if (typedChar === expectedChar) return "statusCorrect";
   return "statusWrong";
 };
 
-const getCursorClass = (hasStarted: boolean, index: number, cursor: number, isSpace = false) => {
+const getCursorClass = (
+  hasStarted: boolean,
+  index: number,
+  cursor: number,
+  isSpace = false
+) => {
   if (!hasStarted || index !== cursor) return "";
   return isSpace ? "cursorSpace" : "cursorChar";
 };
@@ -34,23 +42,48 @@ export const PassageArea = ({
   const words = currentPassage.split(" ");
   const cursor = keyPressed.length;
   const cursorRef = useRef<HTMLElement | null>(null);
+  const hiddenInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     if (!isFinished && hasStarted && cursorRef.current) {
-      cursorRef.current.scrollIntoView({block: "nearest", inline: "nearest", behavior: "smooth"})
+      cursorRef.current.scrollIntoView({
+        block: "nearest",
+        inline: "nearest",
+        behavior: "smooth",
+      });
     }
-  }, [cursor, hasStarted, isFinished])
+  }, [cursor, hasStarted, isFinished]);
 
   if (isFinished) return null;
+
+  const focusHiddenInput = () => {
+    if (hiddenInputRef.current) {
+      hiddenInputRef.current.focus();
+    }
+  };
 
   return (
     <section
       className="passage-area"
       tabIndex={hasStarted ? 0 : 1}
-      onClick={startHandleClick}
+      onClick={() => {
+        startHandleClick();
+        focusHiddenInput();
+      }}
       onKeyDown={handleKeyDown}
       ref={sectionRef}
     >
+
+      <input
+        ref={hiddenInputRef}
+        className="hidden-typing-input"
+        autoFocus={false}
+        autoComplete="off"
+        autoCorrect="off"
+        spellCheck={false}
+        onKeyDown={handleKeyDown}
+      />
+
       {hasStarted ? (
         <p className="passage-text">
           {words.map((word, wordIndex) => (
@@ -63,12 +96,17 @@ export const PassageArea = ({
 
                 const typedChar = keyPressed[globalIndex];
                 const statusClass = getStatusClass(typedChar, expectedChar);
-                const cursorClass = getCursorClass(hasStarted, globalIndex, cursor);
+                const cursorClass = getCursorClass(
+                  hasStarted,
+                  globalIndex,
+                  cursor
+                );
 
                 return (
                   <span
                     key={globalIndex}
-                    className={`${statusClass} ${cursorClass} baseChar`} ref={globalIndex === cursor ? cursorRef : null}
+                    className={`${statusClass} ${cursorClass} baseChar`}
+                    ref={globalIndex === cursor ? cursorRef : null}
                   >
                     {expectedChar}
                   </span>
@@ -77,7 +115,9 @@ export const PassageArea = ({
 
               {wordIndex < words.length - 1 &&
                 (() => {
-                  const spaceIndex = words.slice(0, wordIndex + 1).join(" ").length;
+                  const spaceIndex = words
+                    .slice(0, wordIndex + 1)
+                    .join(" ").length;
 
                   const typedChar = keyPressed[spaceIndex];
                   const statusClass = getStatusClass(typedChar, " ");
@@ -91,7 +131,8 @@ export const PassageArea = ({
                   return (
                     <span
                       key={`space-${spaceIndex}`}
-                      className={`${statusClass} ${cursorClass} baseChar`} ref={spaceIndex === cursor ? cursorRef : null}
+                      className={`${statusClass} ${cursorClass} baseChar`}
+                      ref={spaceIndex === cursor ? cursorRef : null}
                     >
                       {"\u00A0"}
                     </span>
