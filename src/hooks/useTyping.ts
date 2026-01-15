@@ -141,7 +141,7 @@ export const useTyping = () => {
     }, 0);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement | HTMLInputElement>) => {
     if (isFinished) return;
     const key = event.key;
 
