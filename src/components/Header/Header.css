@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  align-items: center;
+  max-width: 76rem;
+}
+
+.personal-best {
+  display: flex;
+  align-items: center;
+}
+
+.personal-best-text {
+  margin-left: 0.625rem;
+}
+
+.personal-best-value {
+  display: inline-block;
+  color: #ffffff;
+}
+
+.logo.large, .personal-best-text.large {
+  display: none;
+}
+
+@media (min-width: 1240px) {
+  .logo.small, .personal-best-text.small {
+    display: none;
+  }
+
+  .logo.large, .personal-best-text.large {
+    display: block;
+  }
+}

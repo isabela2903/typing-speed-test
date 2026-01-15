@@ -1,0 +1,44 @@
+@font-face {
+    font-family: Sora;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/Sora-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: Sora;
+    font-style: bold;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/fonts/Sora-Bold.woff2") format("woff2");
+}
+
+body {
+    background-color: #000000;
+    color: #9ca3af;
+    font-family: "Sora";
+    padding: 20px;
+}
+
+button {
+    border-style: none;
+    background-color: transparent;
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  75% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

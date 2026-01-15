@@ -1,0 +1,32 @@
+.footer {
+    max-width: 76rem;
+    border-top: 1px solid #262626;
+    margin: auto;
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    margin-bottom: 7.25rem;
+}
+
+.restart-btn {
+    background-color: #262626;
+    padding-block: 0.625rem;
+    padding-inline: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.restart-icon {
+    display: inline-block;
+    margin-left: 0.5rem;
+    background-color: #262626;
+}
+
+.restart-btn:hover {
+    background-color: #404040;
+}
+
+.restart-btn:hover > .restart-icon {
+    background-color: #404040;
+}

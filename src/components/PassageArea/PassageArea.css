@@ -1,0 +1,73 @@
+.passage-area {
+    max-width: 76rem;
+    margin: auto;
+    border-top: 1px solid #262626;
+    padding-top: 2rem;
+    margin-top: 0.75rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.passage-area:focus {
+    outline: none;
+}
+
+.passage-text {
+    font-size: 40px;
+}
+
+.baseChar {
+    display: inline-block;
+}
+
+.statusCorrect {
+    color: #05df72;
+}
+
+.statusWrong {
+    color: #ec3e47;
+    text-decoration: underline;
+}
+
+.cursorChar {
+    background-color: #525252;
+}
+
+.cursorSpace {
+    background-color: #525252;
+    color: #ffffff;
+}
+
+.passage-area-blurred {
+    font-size: 40px;
+    filter: blur(12px);
+}
+
+.passage-area-overlay {
+    color: #ffffff;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.start-btn {
+    background-color: #155dfc;
+    border-radius: 12px;
+    padding-block: 0.8rem;
+    padding-inline: 1.35rem;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.start-btn:focus {
+    outline: 2px solid #51a2ff;
+    outline-offset: 3px;
+}
+
+.start-btn:hover {
+    background-color: #51a2ff;
+}

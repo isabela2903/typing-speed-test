@@ -1,0 +1,128 @@
+{
+  "easy": [
+    {
+      "id": "easy-1",
+      "text": "O sol nasceu sobre a cidade tranquila. Pássaros cantavam nas árvores enquanto as pessoas acordavam e começavam o dia. Seria uma manhã quente e ensolarada."
+    },
+    {
+      "id": "easy-2",
+      "text": "Ela caminhou até a loja para comprar pão e leite. A loja estava cheia, mas ela encontrou o que precisava rapidamente. No caminho de casa, ela viu um amigo e acenou."
+    },
+    {
+      "id": "easy-3",
+      "text": "O cachorro correu pelo parque perseguindo uma bola. Ele era rápido e adorava brincar. Depois de um tempo, ele ficou cansado e deitou-se na sombra fresca de um grande carvalho."
+    },
+    {
+      "id": "easy-4",
+      "text": "Eu gosto de ler livros antes de ir dormir. Isso me ajuda a relaxar depois de um longo dia. Minhas histórias favoritas são sobre aventura e viagens para lugares distantes."
+    },
+    {
+      "id": "easy-5",
+      "text": "A cozinha cheirava a café fresco e torradas. A mãe estava fazendo o café da manhã enquanto o pai lia as notícias. Era uma manhã normal em sua casa pequena, mas aconchegante."
+    },
+    {
+      "id": "easy-6",
+      "text": "Nós fomos à praia no verão passado. A água estava azul e a areia estava quente. Construímos um grande castelo de areia e procuramos por conchas ao longo da costa."
+    },
+    {
+      "id": "easy-7",
+      "text": "O gato sentou no parapeito da janela observando a chuva. As gotas caíam pelo vidro uma a uma. Ela parecia feliz por estar dentro de casa, onde estava seco e quentinho."
+    },
+    {
+      "id": "easy-8",
+      "text": "Meu melhor amigo mora na casa ao lado. Nós jogamos juntos depois da escola. Às vezes, andamos de bicicleta pelo quarteirão ou sentamos e conversamos por horas."
+    },
+    {
+      "id": "easy-9",
+      "text": "A primavera é a minha época favorita do ano. As flores começam a florescer e os dias ficam mais longos. Eu amo ver as árvores ficarem verdes novamente após os meses frios de inverno."
+    },
+    {
+      "id": "easy-10",
+      "text": "A música tocava suavemente na sala. Ela fechou os olhos e deixou os sons tomarem conta dela. Era uma música simples, mas fazia com que ela se sentisse em paz."
+    }
+  ],
+  "medium": [
+    {
+      "id": "medium-1",
+      "text": "Aprender uma nova habilidade exige paciência e prática consistente. Esteja você estudando um idioma, aprendendo um instrumento ou dominando um esporte, a chave é comparecer todos os dias. Pequenas melhorias se acumulam com o tempo e, antes que você perceba, terá feito um progresso notável."
+    },
+    {
+      "id": "medium-2",
+      "text": "O antigo farol estava no penhasco há mais de um século, guiando marinheiros com segurança por águas traiçoeiras. Seu feixe de luz cortava a neblina todas as noites, uma presença tranquilizadora para aqueles que navegavam pela costa rochosa. Muitas tempestades testaram sua estrutura, mas ele permaneceu firme."
+    },
+    {
+      "id": "medium-3",
+      "text": "A cultura do café evoluiu dramaticamente nas últimas décadas. O que antes era um simples ritual matinal tornou-se uma forma de arte, com baristas criando desenhos complexos no latte e torradores obtendo grãos de aldeias remotas nas montanhas. A humilde xícara de café agora conta uma história global."
+    },
+    {
+      "id": "medium-4",
+      "text": "Hortas urbanas estão transformando as paisagens das cidades ao redor do mundo. Moradores estão convertendo telhados, varandas e lotes abandonados em espaços verdes prósperos. Essas iniciativas não apenas fornecem produtos frescos, mas também criam comunidades, reduzem o estresse e ajudam a combater o efeito de ilha de calor urbana."
+    },
+    {
+      "id": "medium-5",
+      "text": "O documentário explorou como a tecnologia molda nossos hábitos diários. Do momento em que acordamos com o alarme em nossos telefones aos podcasts com os quais pegamos no sono, as ferramentas digitais se entrelaçaram no tecido da vida moderna. A questão é: nós estamos no controle?"
+    },
+    {
+      "id": "medium-6",
+      "text": "Viajar de trem oferece uma perspectiva única da paisagem rural. Diferente de voar, que reduz as paisagens a padrões abstratos, as viagens ferroviárias permitem que você testemunhe as transições graduais entre as regiões. Você vê fazendas darem lugar a florestas e pequenas cidades surgirem de colinas ondulantes."
+    },
+    {
+      "id": "medium-7",
+      "text": "A chef acreditava que a boa culinária começa com ingredientes de qualidade. Ela visitava agricultores locais toda semana, selecionando vegetais no auge de sua maturação. Seu cardápio mudava conforme as estações, refletindo o que a terra oferecia. Os clientes apreciavam o frescor que podiam sentir em cada mordida."
+    },
+    {
+      "id": "medium-8",
+      "text": "As bibliotecas se reinventaram para a era digital. Além de emprestar livros, elas agora oferecem espaços de coworking, impressoras 3D, estúdios de gravação e oficinas de programação. Esses centros comunitários tornaram-se lugares onde pessoas de todas as idades vêm para aprender, criar e se conectar com outras."
+    },
+    {
+      "id": "medium-9",
+      "text": "A arquiteta projetava edifícios que trabalhavam com a natureza, e não contra ela. Janelas grandes capturavam a luz natural, reduzindo a necessidade de eletricidade. Telhados verdes absorviam a água da chuva e forneciam isolamento térmico. Sua filosofia era simples: o design sustentável deve ser bonito, funcional e acessível a todos."
+    },
+    {
+      "id": "medium-10",
+      "text": "Os mercados noturnos ganham vida após o pôr do sol em cidades por toda a Ásia. Vendedores montam barracas que vendem de tudo, desde espetinhos grelhados até artesanato feito à mão. O ar se enche de aromas sedutores e do burburinho das conversas. Moradores e turistas circulam por eles, provando comida de rua e caçando ofertas."
+    }
+  ],
+  "hard": [
+    {
+      "id": "hard-1",
+      "text": "O argumento da filósofa baseava-se em uma afirmação aparentemente paradoxal: a de que a liberdade absoluta, buscada sem restrições, inevitavelmente solapa a si mesma. \"Considere\", escreveu ela, \"como o ideal libertário — quando levado ao seu extremo lógico — produz condições em que os poderosos dominam os fracos, eliminando, assim, a liberdade para a maioria\". Seus críticos descartaram isso como sofismo; seus apoiadores aclamaram como algo profundo."
+    },
+    {
+      "id": "hard-2",
+      "text": "O emaranhamento quântico — a \"ação fantasmagórica à distância\" de Einstein — continua a deixar físicos e filósofos igualmente perplexos. Quando duas partículas se tornam emaranhadas, a medição de uma afeta instantaneamente a outra, independentemente da distância que as separa. Este fenômeno não viola a relatividade (nenhuma informação viaja mais rápido que a luz), mas desafia nossas intuições sobre localidade, causalidade e a própria natureza da realidade."
+    },
+    {
+      "id": "hard-3",
+      "text": "A correspondência do polímata renascentista revela uma mente de amplitude extraordinária: em cartas de uma única semana, ele discutiu observações astronômicas, criticou os desenhos arquitetônicos de um colega, propôs melhorias no sistema de esgoto da cidade e compôs um soneto para a filha de um patrono. \"A especialização\", comentou ele ironicamente, \"é para insetos\". Seus contemporâneos o achavam exaustivo; a posteridade o considera inspirador."
+    },
+    {
+      "id": "hard-4",
+      "text": "O trading algorítmico reestruturou fundamentalmente os mercados financeiros. Sistemas de alta frequência executam milhares de transações por segundo, explorando minúsculas discrepâncias de preços entre bolsas. Críticos argumentam que isso cria fragilidade sistêmica — o \"Flash Crash\" de 2010 viu o Dow Jones despencar 1.000 pontos em minutos antes de se recuperar. Os defensores rebatem que os algoritmos fornecem liquidez e reduzem os spreads, beneficiando, em última análise, o investidor de varejo."
+    },
+    {
+      "id": "hard-5",
+      "text": "A biógrafa enfrentou um dilema ético: os diários particulares de seu biografado — descobertos recentemente em um sótão — continham revelações que derrubariam sua imagem pública cuidadosamente cultivada. Ela deveria publicá-los? \"A biografia\", refletiu ela, \"existe na tensão entre contar a verdade e o respeito pelos mortos\". Após meses de deliberação, ela optou pela divulgação, raciocinando que uma história higienizada não serve a ninguém."
+    },
+    {
+      "id": "hard-6",
+      "text": "Os microplásticos infiltraram-se em praticamente todos os ecossistemas da Terra, da Fossa das Marianas a núcleos de gelo do Ártico. Esses fragmentos de polímero — menores que 5 mm de diâmetro — originam-se da degradação de produtos de consumo, têxteis sintéticos e processos industriais. Pesquisadores os detectaram no sangue humano, em tecidos placentários e no leite materno; suas implicações para a saúde a longo prazo permanecem perturbadoramente incertas. A onipresença da poluição plástica representa um experimento sem precedentes na biologia planetária."
+    },
+    {
+      "id": "hard-7",
+      "text": "A interpretação da maestrina para a Nona Sinfonia de Mahler enfatizou suas qualidades proféticas — a premonição da catástrofe, a nostalgia dolorosa por um mundo prestes a desaparecer. \"Mahler compôs isso sabendo que estava morrendo\", explicou ela nas notas do programa, \"mas ele também intuiu, de alguma forma, que a própria civilização europeia estava à beira do precipício\". A performance da orquestra — contida, trêmula, transcendente — deixou o público em um silêncio atordoado."
+    },
+    {
+      "id": "hard-8",
+      "text": "Estudiosos constitucionais continuam debatendo a \"dificuldade contramajoritária\": como pode o controle de constitucionalidade — por meio do qual juízes não eleitos anulam leis aprovadas por representantes democráticos — ser reconciliado com a soberania popular? Alguns argumentam que os tribunais protegem os direitos das minorias contra maiorias tirânicas; outros sustentam que esse raciocínio mascara preferências ideológicas em uma jurisprudência de som neutro. A tensão, talvez, seja irresolvível; sistemas democráticos devem equilibrar valores conflitantes em vez de otimizar para um único princípio."
+    },
+    {
+      "id": "hard-9",
+      "text": "O estilo de prosa da romancista — elíptico, fragmentado, pontuado por mudanças temporais abruptas — refletia suas preocupações temáticas: a não confiabilidade da memória, a fluidez da identidade, a impossibilidade de uma narração objetiva. \"Cada história\", declarou ela em uma entrevista,\"é simultaneamente verdadeira e falsa; ela revela ao ocultar, ilumina ao lançar sombras\". Críticos a acusaram de obscurantismo; ela respondeu que a própria clareza pode ser uma forma de decepção."
+    },
+    {
+      "id": "hard-10",
+      "text": "A expedição arqueológica desenterrou artefatos que complicaram as teorias vigentes sobre as redes comerciais da Idade do Bronze. Obsidiana da Anatólia, lápis-lazúli do Afeganistão e âmbar do Báltico — todos descobertos em um único túmulo micênico — sugeriram conexões comerciais muito mais extensas do que as hipotetizadas anteriormente. \"Subestimamos as capacidades de navegação dos povos antigos e seu apetite por bens de luxo\", observou o pesquisador principal. \"A globalização não é tão moderna quanto supomos.\""
+    }
+  ]
+}
