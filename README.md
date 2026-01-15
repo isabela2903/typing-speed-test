@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# Typing Speed Test
+Aplicativo de teste de digitação construído com React, inspirado no desafio “Typing Speed Test” da Frontend Mentor. O usuário pode praticar digitação, acompanhar WPM e precisão em tempo real e salvar seu recorde no navegador.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Demo​
+Acesse o projeto online: [https://typing-speed-test-seven-phi.vercel.app/]
 
-Currently, two official plugins are available:
+##  Funcionalidades
+* Seleção de dificuldade: Easy, Medium e Hard.
+​
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Dois modos de teste:
 
-## React Compiler
+Timed (60s): teste de 60 segundos.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Passage: digita o texto completo, com tempo contando para cima.
+​
 
-## Expanding the ESLint configuration
+* Estatísticas em tempo real:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+WPM (palavras por minuto).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Accuracy (acurácia em %).
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Tempo decorrido.
+​
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Feedback visual:
+
+Caracteres corretos em verde.
+
+Erros em vermelho/sublinhado.
+
+Cursor visível acompanhando a digitação.
+​
+
+* Resultados ao final do teste:
+
+WPM, accuracy e total de caracteres corretos/incorretos.
+​
+
+* Progresso do usuário:
+
+“Baseline Established!” no primeiro teste.
+
+“High Score Smashed!” com confete ao bater o recorde.
+
+Recorde de WPM salvo em localStorage.
+​
+
+* Layout responsivo com estados de hover e foco nos botões.
+​
+
+### Tecnologias 🚀
+React + TypeScript
+
+Vite para build e dev server
+
+CSS para estilização
+
+## Como rodar o projeto
+Clonar o repositório:
+
+bash
 ```
+git clone https://github.com/isabela2903/typing-speed-test.git
+cd typing-speed-test
+```
+Instalar dependências:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+bash
+```
+npm install
+# ou
+yarn
+```
+Rodar em ambiente de desenvolvimento:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+bash
+```
+npm run dev
+# ou
+yarn dev
+```
+Build de produção:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+bash
+```
+npm run build
+# ou
+yarn build
 ```
