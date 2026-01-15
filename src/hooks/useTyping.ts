@@ -141,11 +141,9 @@ export const useTyping = () => {
     }, 0);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement | HTMLInputElement>) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (isFinished) return;
     const key = event.key;
-
-    event.preventDefault();
 
     const isAllowed =
       key === " " || key === "Backspace" || /^[\p{L}\p{N}\p{P}]$/u.test(key);

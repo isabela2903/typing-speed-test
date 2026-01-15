@@ -71,11 +71,3 @@
 .start-btn:hover {
     background-color: #51a2ff;
 }
-
-.hidden-typing-input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-  height: 0;
-  width: 0;
-}

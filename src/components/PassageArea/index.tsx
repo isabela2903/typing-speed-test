@@ -5,9 +5,7 @@ interface PassageAreaProps {
   currentPassage: string;
   hasStarted: boolean;
   startHandleClick: () => void;
-  handleKeyDown: (
-    event: React.KeyboardEvent<HTMLElement | HTMLInputElement>
-  ) => void;
+  handleKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
   sectionRef: React.RefObject<HTMLElement | null>;
   keyPressed: string[];
   isFinished: boolean;
@@ -44,7 +42,6 @@ export const PassageArea = ({
   const words = currentPassage.split(" ");
   const cursor = keyPressed.length;
   const cursorRef = useRef<HTMLElement | null>(null);
-  const hiddenInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     if (!isFinished && hasStarted && cursorRef.current) {
@@ -58,29 +55,14 @@ export const PassageArea = ({
 
   if (isFinished) return null;
 
-  const focusHiddenInput = () => {
-    hiddenInputRef.current?.focus();
-  };
-
   return (
     <section
       className="passage-area"
-      tabIndex={-1}
-      onClick={() => {
-        startHandleClick();
-        focusHiddenInput();
-      }}
+      tabIndex={hasStarted ? 0 : 1}
+      onClick={startHandleClick}
+      onKeyDown={handleKeyDown}
       ref={sectionRef}
     >
-      <input
-        ref={hiddenInputRef}
-        className="hidden-typing-input"
-        autoComplete="off"
-        autoCorrect="off"
-        spellCheck={false}
-        onKeyDown={handleKeyDown}
-      />
-
       {hasStarted ? (
         <p className="passage-text">
           {words.map((word, wordIndex) => (
@@ -146,10 +128,7 @@ export const PassageArea = ({
         <div className="passage-area-overlay">
           <button
             className="start-btn"
-            onClick={() => {
-              startHandleClick();
-              focusHiddenInput();
-            }}
+            onClick={startHandleClick}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 startHandleClick();
