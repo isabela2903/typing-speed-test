@@ -5,7 +5,9 @@ interface PassageAreaProps {
   currentPassage: string;
   hasStarted: boolean;
   startHandleClick: () => void;
-  handleKeyDown: (event: React.KeyboardEvent<HTMLElement | HTMLInputElement>) => void;
+  handleKeyDown: (
+    event: React.KeyboardEvent<HTMLElement | HTMLInputElement>
+  ) => void;
   sectionRef: React.RefObject<HTMLElement | null>;
   keyPressed: string[];
   isFinished: boolean;
@@ -57,27 +59,22 @@ export const PassageArea = ({
   if (isFinished) return null;
 
   const focusHiddenInput = () => {
-    if (hiddenInputRef.current) {
-      hiddenInputRef.current.focus();
-    }
+    hiddenInputRef.current?.focus();
   };
 
   return (
     <section
       className="passage-area"
-      tabIndex={hasStarted ? 0 : 1}
+      tabIndex={-1}
       onClick={() => {
         startHandleClick();
         focusHiddenInput();
       }}
-      onKeyDown={handleKeyDown}
       ref={sectionRef}
     >
-
       <input
         ref={hiddenInputRef}
         className="hidden-typing-input"
-        autoFocus={false}
         autoComplete="off"
         autoCorrect="off"
         spellCheck={false}
@@ -149,7 +146,10 @@ export const PassageArea = ({
         <div className="passage-area-overlay">
           <button
             className="start-btn"
-            onClick={startHandleClick}
+            onClick={() => {
+              startHandleClick();
+              focusHiddenInput();
+            }}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 startHandleClick();
