@@ -128,20 +128,20 @@ export const useTyping = () => {
     setShouldRunEffect(false);
   };
 
-  const countMatches = (
-    keys: string[],
-    chars: string[],
-    predicate: (a: string, b: string) => boolean
-  ) => {
-    return keys.reduce((count, key, index) => {
-      const expected = chars[index];
-      if (!expected) return count;
+  // const countMatches = (
+  //   keys: string[],
+  //   chars: string[],
+  //   predicate: (a: string, b: string) => boolean
+  // ) => {
+  //   return keys.reduce((count, key, index) => {
+  //     const expected = chars[index];
+  //     if (!expected) return count;
 
-      return (
-        count + (predicate(key.toLowerCase(), expected.toLowerCase()) ? 1 : 0)
-      );
-    }, 0);
-  };
+  //     return (
+  //       count + (predicate(key.toLowerCase(), expected.toLowerCase()) ? 1 : 0)
+  //     );
+  //   }, 0);
+  // };
 
   const normalize = (s: string) => s.replace(/\u00A0/g, " ").normalize("NFC");
 
