@@ -10,6 +10,7 @@ interface PassageAreaProps {
   keyPressed: string[];
   isFinished: boolean;
   inputRef: React.RefObject<HTMLInputElement | null>;
+  handleInputChange: (value: string) => void;
 }
 
 const getStatusClass = (
@@ -35,11 +36,11 @@ export const PassageArea = ({
   currentPassage,
   hasStarted,
   startHandleClick,
-  handleKeyDown,
   sectionRef,
   keyPressed,
   isFinished,
   inputRef,
+  handleInputChange,
 }: PassageAreaProps) => {
   const words = currentPassage.split(" ");
   const cursor = keyPressed.length;
@@ -64,18 +65,16 @@ export const PassageArea = ({
         startHandleClick();
         inputRef.current?.focus();
       }}
-      onKeyDown={handleKeyDown}
       ref={sectionRef}
     >
-
-       <input
+      <input
         ref={inputRef}
         type="text"
         inputMode="text"
         autoCapitalize="none"
         autoComplete="off"
         autoCorrect="off"
-        onKeyDown={handleKeyDown}
+        onChange={(e) => handleInputChange(e.target.value)}
         style={{
           position: "absolute",
           opacity: 0,

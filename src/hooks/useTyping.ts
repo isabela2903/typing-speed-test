@@ -143,6 +143,30 @@ export const useTyping = () => {
     }, 0);
   };
 
+  const handleInputChange = (value: string) => {
+    if (isFinished) return;
+
+    const chars = [...currentPassage];
+
+    const clipped = value.slice(0, chars.length);
+    const nextKeys = [...clipped];
+
+    setKeyPressed(nextKeys);
+    setTotalCharsTyped(nextKeys.length);
+    setTypedText(nextKeys.length);
+
+    const corrects = countMatches(nextKeys, chars, (a, b) => a === b);
+    const incorrects = countMatches(nextKeys, chars, (a, b) => a !== b);
+
+    setCorrectChars(corrects);
+    setIncorrectChars(incorrects);
+    setShouldRunEffect(true);
+
+    if (nextKeys.length === chars.length && mode === "passage") {
+      finishTest();
+    }
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (isFinished) return;
     const key = event.key;
@@ -227,5 +251,6 @@ export const useTyping = () => {
     modeOpen,
     setModeOpen,
     inputRef,
+    handleInputChange
   };
 };
