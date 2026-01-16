@@ -16,7 +16,6 @@ function App() {
     startHandleClick,
     timeElapsed,
     resetHandleClick,
-    handleKeyDown,
     sectionRef,
     accuracy,
     wpm,
@@ -59,7 +58,6 @@ function App() {
         currentPassage={currentPassage}
         hasStarted={hasStarted}
         startHandleClick={startHandleClick}
-        handleKeyDown={handleKeyDown}
         sectionRef={sectionRef}
         keyPressed={keyPressed}
         isFinished={isFinished}

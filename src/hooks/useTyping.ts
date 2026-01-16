@@ -176,18 +176,6 @@ export const useTyping = () => {
     }
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
-    if (isFinished) return;
-    const key = event.key;
-
-    const isAllowed =
-      key === " " || key === "Backspace" || /^[\p{L}\p{N}\p{P}]$/u.test(key);
-
-    if (!isAllowed) {
-      event.preventDefault();
-    }
-  };
-
   useEffect(() => {
     const handleSpaceScroll = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
@@ -215,7 +203,6 @@ export const useTyping = () => {
     startHandleClick,
     timeElapsed,
     resetHandleClick,
-    handleKeyDown,
     sectionRef,
     accuracy,
     wpm,
@@ -232,6 +219,6 @@ export const useTyping = () => {
     setModeOpen,
     inputRef,
     handleInputChange,
-    typedText
+    typedText,
   };
 };

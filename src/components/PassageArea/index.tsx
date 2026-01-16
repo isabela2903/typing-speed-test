@@ -5,7 +5,6 @@ interface PassageAreaProps {
   currentPassage: string;
   hasStarted: boolean;
   startHandleClick: () => void;
-  handleKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
   sectionRef: React.RefObject<HTMLElement | null>;
   keyPressed: string[];
   isFinished: boolean;
@@ -74,7 +73,7 @@ export const PassageArea = ({
         autoCapitalize="none"
         autoComplete="off"
         autoCorrect="off"
-        value={keyPressed.join("")} 
+        value={keyPressed.join("")}
         onChange={(e) => handleInputChange(e.target.value)}
         style={{
           position: "absolute",
@@ -84,6 +83,7 @@ export const PassageArea = ({
           width: 0,
         }}
       />
+
       {hasStarted ? (
         <p className="passage-text">
           {words.map((word, wordIndex) => (
