@@ -151,23 +151,13 @@ export const useTyping = () => {
     const target = normalize(currentPassage);
     const chars = [...target];
 
-    // valor vindo do input (já com Backspace aplicado pelo teclado)
     const typed = normalize(value).slice(0, chars.length);
     const nextKeys = [...typed];
 
-    // se o teclado apagou demais, garantir que não vamos além
-    if (nextKeys.length < keyPressed.length) {
-      // usuário usou Backspace: apenas atualiza para o novo tamanho
-      setKeyPressed(nextKeys);
-    } else {
-      // usuário digitou algo novo
-      setKeyPressed(nextKeys);
-    }
-
+    setKeyPressed(nextKeys);
     setTotalCharsTyped(nextKeys.length);
     setTypedText(nextKeys.length);
 
-    // corretos / incorretos por posição atual
     let corrects = 0;
     for (let i = 0; i < nextKeys.length; i++) {
       if (!chars[i]) break;
@@ -195,35 +185,6 @@ export const useTyping = () => {
 
     if (!isAllowed) {
       event.preventDefault();
-      return;
-    }
-
-    let nextKeys: string[];
-
-    if (key === "Backspace") {
-      nextKeys = keyPressed.slice(0, -1);
-      setTypedText((prev) => (prev > 0 ? prev - 1 : 0));
-      setTotalCharsTyped((prev) => (prev > 0 ? prev - 1 : 0));
-    } else {
-      nextKeys = [...keyPressed, key];
-      setTypedText((prev) => prev + 1);
-      setTotalCharsTyped((prev) => prev + 1);
-    }
-
-    setKeyPressed(nextKeys);
-
-    const chars = [...currentPassage];
-
-    const corrects = countMatches(nextKeys, chars, (a, b) => a === b);
-    const incorrects = countMatches(nextKeys, chars, (a, b) => a !== b);
-
-    setShouldRunEffect(true);
-    setCorrectChars(corrects);
-    setIncorrectChars(incorrects);
-
-    if (nextKeys.length === chars.length && mode === "passage") {
-      finishTest();
-      return typedText;
     }
   };
 
