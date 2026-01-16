@@ -11,6 +11,7 @@ interface PassageAreaProps {
   isFinished: boolean;
   inputRef: React.RefObject<HTMLInputElement | null>;
   handleInputChange: (value: string) => void;
+  handleInputKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const getStatusClass = (
@@ -41,6 +42,7 @@ export const PassageArea = ({
   isFinished,
   inputRef,
   handleInputChange,
+  handleInputKeyDown
 }: PassageAreaProps) => {
   const words = currentPassage.split(" ");
   const cursor = keyPressed.length;
@@ -75,6 +77,7 @@ export const PassageArea = ({
         autoComplete="off"
         autoCorrect="off"
         onChange={(e) => handleInputChange(e.target.value)}
+        onKeyDown={handleInputKeyDown}
         style={{
           position: "absolute",
           opacity: 0,

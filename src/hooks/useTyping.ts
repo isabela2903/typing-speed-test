@@ -144,39 +144,57 @@ export const useTyping = () => {
   };
 
   const handleInputChange = (value: string) => {
-  if (isFinished) return;
+    if (isFinished) return;
 
-  const chars = [...currentPassage];
-  const clipped = value.slice(0, chars.length);
-  const nextKeys = [...clipped];
+    const chars = [...currentPassage];
+    const clipped = value.slice(0, chars.length);
+    const nextKeys = [...clipped];
 
-  setKeyPressed(nextKeys);
-  setTotalCharsTyped(nextKeys.length);
-  setTypedText(nextKeys.length);
+    setKeyPressed(nextKeys);
+    setTotalCharsTyped(nextKeys.length);
+    setTypedText(nextKeys.length);
 
-  // encontra o último índice que está 100% correto e contínuo
-  let lastCorrectIndex = -1;
+    // percorre do início até a primeira diferença
+    let lastCorrectIndex = -1;
 
-  for (let i = 0; i < nextKeys.length; i++) {
-    if (nextKeys[i].toLowerCase() === chars[i]?.toLowerCase()) {
-      lastCorrectIndex = i;
-    } else {
-      // parou na primeira posição errada
-      break;
+    for (let i = 0; i < nextKeys.length; i++) {
+      if (nextKeys[i].toLowerCase() === chars[i]?.toLowerCase()) {
+        lastCorrectIndex = i;
+      } else {
+        break; // travou na primeira posição errada
+      }
     }
-  }
 
-  const corrects = lastCorrectIndex + 1; // posições 0..lastCorrectIndex corretas
-  const incorrects = nextKeys.length - corrects; // resto ainda “em disputa”
+    const corrects = lastCorrectIndex + 1;
+    const incorrects = nextKeys.length - corrects;
 
-  setCorrectChars(corrects);
-  setIncorrectChars(incorrects);
-  setShouldRunEffect(true);
+    setCorrectChars(corrects);
+    setIncorrectChars(incorrects);
+    setShouldRunEffect(true);
 
-  if (nextKeys.length === chars.length && mode === "passage") {
-    finishTest();
-  }
-};
+    if (nextKeys.length === chars.length && mode === "passage") {
+      finishTest();
+    }
+  };
+
+  const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (isFinished) return;
+
+    const key = event.key;
+    const isAllowed =
+      key === " " || key === "Backspace" || /^[\p{L}\p{N}\p{P}]$/u.test(key);
+
+    if (!isAllowed) {
+      event.preventDefault();
+      return;
+    }
+
+    if (key === "Backspace") {
+      if (keyPressed.length === 0) {
+        event.preventDefault();
+      }
+    }
+  };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (isFinished) return;
@@ -263,5 +281,6 @@ export const useTyping = () => {
     setModeOpen,
     inputRef,
     handleInputChange,
+    handleInputKeyDown
   };
 };

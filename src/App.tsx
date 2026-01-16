@@ -33,6 +33,7 @@ function App() {
     setModeOpen,
     inputRef,
     handleInputChange,
+    handleInputKeyDown
   } = useTyping();
 
   return (
@@ -65,6 +66,7 @@ function App() {
         isFinished={isFinished}
         inputRef={inputRef}
         handleInputChange={handleInputChange}
+        handleInputKeyDown={handleInputKeyDown}
       />
 
       <Footer
