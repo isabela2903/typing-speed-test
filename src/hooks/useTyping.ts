@@ -147,25 +147,15 @@ export const useTyping = () => {
     if (isFinished) return;
 
     const chars = [...currentPassage];
-    const clipped = value.slice(0, chars.length);
+    const clipped = value.slice(0, chars.length); // não deixa digitar além
     const nextKeys = [...clipped];
 
     setKeyPressed(nextKeys);
     setTotalCharsTyped(nextKeys.length);
     setTypedText(nextKeys.length);
 
-    // percorre do início até a primeira diferença
-    let lastCorrectIndex = -1;
-
-    for (let i = 0; i < nextKeys.length; i++) {
-      if (nextKeys[i].toLowerCase() === chars[i]?.toLowerCase()) {
-        lastCorrectIndex = i;
-      } else {
-        break; // travou na primeira posição errada
-      }
-    }
-
-    const corrects = lastCorrectIndex + 1;
+    // compara posição a posição no trecho digitado
+    const corrects = countMatches(nextKeys, chars, (a, b) => a === b);
     const incorrects = nextKeys.length - corrects;
 
     setCorrectChars(corrects);
@@ -174,25 +164,6 @@ export const useTyping = () => {
 
     if (nextKeys.length === chars.length && mode === "passage") {
       finishTest();
-    }
-  };
-
-  const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (isFinished) return;
-
-    const key = event.key;
-    const isAllowed =
-      key === " " || key === "Backspace" || /^[\p{L}\p{N}\p{P}]$/u.test(key);
-
-    if (!isAllowed) {
-      event.preventDefault();
-      return;
-    }
-
-    if (key === "Backspace") {
-      if (keyPressed.length === 0) {
-        event.preventDefault();
-      }
     }
   };
 
@@ -281,6 +252,5 @@ export const useTyping = () => {
     setModeOpen,
     inputRef,
     handleInputChange,
-    handleInputKeyDown
   };
 };
