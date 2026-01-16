@@ -32,6 +32,9 @@ function App() {
     setModeOpen,
     inputRef,
     handleInputChange,
+    cursor,
+    cursorRef,
+    getStatusClass,
   } = useTyping();
 
   return (
@@ -63,6 +66,9 @@ function App() {
         isFinished={isFinished}
         inputRef={inputRef}
         handleInputChange={handleInputChange}
+        cursor={cursor}
+        cursorRef={cursorRef}
+        getStatusClass={getStatusClass}
       />
 
       <Footer

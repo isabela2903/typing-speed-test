@@ -27,6 +27,9 @@ export const useTyping = () => {
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const cursorRef = useRef<HTMLElement | null>(null);
+
+  const cursor = keyPressed.length;
 
   const accuracy =
     totalCharsTyped === 0 ? 100 : (correctChars / totalCharsTyped) * 100;
@@ -46,6 +49,16 @@ export const useTyping = () => {
     setIsFinished(false);
     setResultMessage("");
   };
+
+  useEffect(() => {
+    if (!isFinished && hasStarted && cursorRef.current) {
+      cursorRef.current.scrollIntoView({
+        block: "nearest",
+        inline: "nearest",
+        behavior: "smooth",
+      });
+    }
+  }, [cursor, hasStarted, isFinished]);
 
   const setRandomPassage = () => {
     const currentList = passagesData[difficulty];
@@ -128,21 +141,6 @@ export const useTyping = () => {
     setShouldRunEffect(false);
   };
 
-  // const countMatches = (
-  //   keys: string[],
-  //   chars: string[],
-  //   predicate: (a: string, b: string) => boolean
-  // ) => {
-  //   return keys.reduce((count, key, index) => {
-  //     const expected = chars[index];
-  //     if (!expected) return count;
-
-  //     return (
-  //       count + (predicate(key.toLowerCase(), expected.toLowerCase()) ? 1 : 0)
-  //     );
-  //   }, 0);
-  // };
-
   const normalize = (s: string) => s.replace(/\u00A0/g, " ").normalize("NFC");
 
   const handleInputChange = (value: string) => {
@@ -193,6 +191,15 @@ export const useTyping = () => {
     return () => window.removeEventListener("keydown", handleSpaceScroll);
   }, []);
 
+  const getStatusClass = (
+    typedChar: string | undefined,
+    expectedChar: string
+  ) => {
+    if (typedChar === undefined) return;
+    if (typedChar === expectedChar) return "statusCorrect";
+    return "statusWrong";
+  };
+
   return {
     difficulty,
     setDifficulty,
@@ -220,5 +227,8 @@ export const useTyping = () => {
     inputRef,
     handleInputChange,
     typedText,
+    cursor,
+    cursorRef,
+    getStatusClass
   };
 };

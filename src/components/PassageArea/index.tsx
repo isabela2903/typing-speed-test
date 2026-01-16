@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import "./PassageArea.css";
 
 interface PassageAreaProps {
@@ -10,16 +9,10 @@ interface PassageAreaProps {
   isFinished: boolean;
   inputRef: React.RefObject<HTMLInputElement | null>;
   handleInputChange: (value: string) => void;
+  cursor: number;
+  cursorRef: React.RefObject<HTMLElement | null>;
+  getStatusClass: (typedChar: string | undefined, expectedChar: string) => void;
 }
-
-const getStatusClass = (
-  typedChar: string | undefined,
-  expectedChar: string
-) => {
-  if (typedChar === undefined) return;
-  if (typedChar === expectedChar) return "statusCorrect";
-  return "statusWrong";
-};
 
 const getCursorClass = (
   hasStarted: boolean,
@@ -40,23 +33,14 @@ export const PassageArea = ({
   isFinished,
   inputRef,
   handleInputChange,
+  cursor,
+  cursorRef,
+  getStatusClass,
 }: PassageAreaProps) => {
   const normalize = (s: string) => s.replace(/\u00A0/g, " ").normalize("NFC");
   const normalizedPassage = normalize(currentPassage);
 
   const words = normalizedPassage.split(" ");
-  const cursor = keyPressed.length;
-  const cursorRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    if (!isFinished && hasStarted && cursorRef.current) {
-      cursorRef.current.scrollIntoView({
-        block: "nearest",
-        inline: "nearest",
-        behavior: "smooth",
-      });
-    }
-  }, [cursor, hasStarted, isFinished]);
 
   if (isFinished) return null;
 
