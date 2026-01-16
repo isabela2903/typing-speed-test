@@ -143,29 +143,38 @@ export const useTyping = () => {
     }, 0);
   };
 
+  const normalize = (s: string) => s.replace(/\u00A0/g, " ").normalize("NFC");
+
   const handleInputChange = (value: string) => {
     if (isFinished) return;
-
-    // normaliza tudo para evitar diferença de espaço/acento
-    const normalize = (s: string) => s.replace(/\u00A0/g, " ").normalize("NFC");
 
     const target = normalize(currentPassage);
     const chars = [...target];
 
-    const clipped = normalize(value).slice(0, chars.length);
-    const nextKeys = [...clipped];
+    // valor vindo do input (já com Backspace aplicado pelo teclado)
+    const typed = normalize(value).slice(0, chars.length);
+    const nextKeys = [...typed];
 
-    setKeyPressed(nextKeys);
+    // se o teclado apagou demais, garantir que não vamos além
+    if (nextKeys.length < keyPressed.length) {
+      // usuário usou Backspace: apenas atualiza para o novo tamanho
+      setKeyPressed(nextKeys);
+    } else {
+      // usuário digitou algo novo
+      setKeyPressed(nextKeys);
+    }
+
     setTotalCharsTyped(nextKeys.length);
     setTypedText(nextKeys.length);
 
-    // corretos = posições digitadas que batem
-    const corrects = nextKeys.reduce((count, ch, i) => {
-      const expected = chars[i];
-      if (!expected) return count;
-      return count + (ch.toLowerCase() === expected.toLowerCase() ? 1 : 0);
-    }, 0);
-
+    // corretos / incorretos por posição atual
+    let corrects = 0;
+    for (let i = 0; i < nextKeys.length; i++) {
+      if (!chars[i]) break;
+      if (nextKeys[i].toLowerCase() === chars[i].toLowerCase()) {
+        corrects++;
+      }
+    }
     const incorrects = nextKeys.length - corrects;
 
     setCorrectChars(corrects);
