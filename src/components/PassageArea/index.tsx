@@ -41,7 +41,10 @@ export const PassageArea = ({
   inputRef,
   handleInputChange,
 }: PassageAreaProps) => {
-  const words = currentPassage.split(" ");
+  const normalize = (s: string) => s.replace(/\u00A0/g, " ").normalize("NFC");
+  const normalizedPassage = normalize(currentPassage);
+
+  const words = normalizedPassage.split(" ");
   const cursor = keyPressed.length;
   const cursorRef = useRef<HTMLElement | null>(null);
 
@@ -79,8 +82,10 @@ export const PassageArea = ({
           position: "absolute",
           opacity: 0,
           pointerEvents: "none",
-          height: 0,
-          width: 0,
+          height: "100px",
+          width: "40px",
+          top: 0,
+          left: 0,
         }}
       />
 
