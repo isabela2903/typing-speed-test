@@ -75,6 +75,7 @@ export const PassageArea = ({
         autoCapitalize="none"
         autoComplete="off"
         autoCorrect="off"
+        onKeyDown={handleKeyDown}
         style={{
           position: "absolute",
           opacity: 0,
