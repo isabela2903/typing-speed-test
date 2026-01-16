@@ -31,6 +31,7 @@ function App() {
     setDifficultyOpen,
     modeOpen,
     setModeOpen,
+    inputRef,
   } = useTyping();
 
   return (
@@ -61,6 +62,7 @@ function App() {
         sectionRef={sectionRef}
         keyPressed={keyPressed}
         isFinished={isFinished}
+        inputRef={inputRef}
       />
 
       <Footer

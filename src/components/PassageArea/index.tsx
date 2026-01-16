@@ -9,6 +9,7 @@ interface PassageAreaProps {
   sectionRef: React.RefObject<HTMLElement | null>;
   keyPressed: string[];
   isFinished: boolean;
+  inputRef: React.RefObject<HTMLInputElement | null>;
 }
 
 const getStatusClass = (
@@ -38,6 +39,7 @@ export const PassageArea = ({
   sectionRef,
   keyPressed,
   isFinished,
+  inputRef,
 }: PassageAreaProps) => {
   const words = currentPassage.split(" ");
   const cursor = keyPressed.length;
@@ -58,11 +60,29 @@ export const PassageArea = ({
   return (
     <section
       className="passage-area"
-      tabIndex={hasStarted ? 0 : 1}
-      onClick={startHandleClick}
+      onClick={() => {
+        startHandleClick();
+        inputRef.current?.focus();
+      }}
       onKeyDown={handleKeyDown}
       ref={sectionRef}
     >
+
+       <input
+        ref={inputRef}
+        type="text"
+        inputMode="text"
+        autoCapitalize="none"
+        autoComplete="off"
+        autoCorrect="off"
+        style={{
+          position: "absolute",
+          opacity: 0,
+          pointerEvents: "none",
+          height: 0,
+          width: 0,
+        }}
+      />
       {hasStarted ? (
         <p className="passage-text">
           {words.map((word, wordIndex) => (

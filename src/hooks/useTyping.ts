@@ -26,6 +26,7 @@ export const useTyping = () => {
   const [modeOpen, setModeOpen] = useState<boolean>(false);
 
   const sectionRef = useRef<HTMLElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const accuracy =
     totalCharsTyped === 0 ? 100 : (correctChars / totalCharsTyped) * 100;
@@ -117,6 +118,7 @@ export const useTyping = () => {
     resetTypingStats();
     setShouldRunEffect(false);
     sectionRef.current?.focus();
+    inputRef.current?.focus();
   };
 
   const resetHandleClick = () => {
@@ -224,5 +226,6 @@ export const useTyping = () => {
     setDifficultyOpen,
     modeOpen,
     setModeOpen,
+    inputRef,
   };
 };
