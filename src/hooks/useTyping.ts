@@ -144,27 +144,39 @@ export const useTyping = () => {
   };
 
   const handleInputChange = (value: string) => {
-    if (isFinished) return;
+  if (isFinished) return;
 
-    const chars = [...currentPassage];
-    const clipped = value.slice(0, chars.length);
-    const nextKeys = [...clipped];
+  const chars = [...currentPassage];
+  const clipped = value.slice(0, chars.length);
+  const nextKeys = [...clipped];
 
-    setKeyPressed(nextKeys);
-    setTotalCharsTyped(nextKeys.length);
-    setTypedText(nextKeys.length);
+  setKeyPressed(nextKeys);
+  setTotalCharsTyped(nextKeys.length);
+  setTypedText(nextKeys.length);
 
-    const corrects = countMatches(nextKeys, chars, (a, b) => a === b);
-    const incorrects = countMatches(nextKeys, chars, (a, b) => a !== b);
+  // encontra o último índice que está 100% correto e contínuo
+  let lastCorrectIndex = -1;
 
-    setCorrectChars(corrects);
-    setIncorrectChars(incorrects);
-    setShouldRunEffect(true);
-
-    if (nextKeys.length === chars.length && mode === "passage") {
-      finishTest();
+  for (let i = 0; i < nextKeys.length; i++) {
+    if (nextKeys[i].toLowerCase() === chars[i]?.toLowerCase()) {
+      lastCorrectIndex = i;
+    } else {
+      // parou na primeira posição errada
+      break;
     }
-  };
+  }
+
+  const corrects = lastCorrectIndex + 1; // posições 0..lastCorrectIndex corretas
+  const incorrects = nextKeys.length - corrects; // resto ainda “em disputa”
+
+  setCorrectChars(corrects);
+  setIncorrectChars(incorrects);
+  setShouldRunEffect(true);
+
+  if (nextKeys.length === chars.length && mode === "passage") {
+    finishTest();
+  }
+};
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (isFinished) return;
