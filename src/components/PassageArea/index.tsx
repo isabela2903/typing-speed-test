@@ -74,6 +74,7 @@ export const PassageArea = ({
         autoCapitalize="none"
         autoComplete="off"
         autoCorrect="off"
+        value={keyPressed.join("")} 
         onChange={(e) => handleInputChange(e.target.value)}
         style={{
           position: "absolute",

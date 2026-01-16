@@ -28,8 +28,6 @@ export const useTyping = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const normalize = (s: string) => s.replace(/\u00A0/g, " ").normalize("NFC");
-
   const accuracy =
     totalCharsTyped === 0 ? 100 : (correctChars / totalCharsTyped) * 100;
   const wpm = timeElapsed === 0 ? 0 : totalCharsTyped / 5 / (timeElapsed / 60);
@@ -148,6 +146,9 @@ export const useTyping = () => {
   const handleInputChange = (value: string) => {
     if (isFinished) return;
 
+    // normaliza tudo para evitar diferença de espaço/acento
+    const normalize = (s: string) => s.replace(/\u00A0/g, " ").normalize("NFC");
+
     const target = normalize(currentPassage);
     const chars = [...target];
 
@@ -158,7 +159,13 @@ export const useTyping = () => {
     setTotalCharsTyped(nextKeys.length);
     setTypedText(nextKeys.length);
 
-    const corrects = countMatches(nextKeys, chars, (a, b) => a === b);
+    // corretos = posições digitadas que batem
+    const corrects = nextKeys.reduce((count, ch, i) => {
+      const expected = chars[i];
+      if (!expected) return count;
+      return count + (ch.toLowerCase() === expected.toLowerCase() ? 1 : 0);
+    }, 0);
+
     const incorrects = nextKeys.length - corrects;
 
     setCorrectChars(corrects);
