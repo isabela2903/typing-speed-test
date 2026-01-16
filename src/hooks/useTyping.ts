@@ -147,7 +147,6 @@ export const useTyping = () => {
     if (isFinished) return;
 
     const chars = [...currentPassage];
-
     const clipped = value.slice(0, chars.length);
     const nextKeys = [...clipped];
 
@@ -251,6 +250,6 @@ export const useTyping = () => {
     modeOpen,
     setModeOpen,
     inputRef,
-    handleInputChange
+    handleInputChange,
   };
 };
