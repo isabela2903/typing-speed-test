@@ -232,5 +232,6 @@ export const useTyping = () => {
     setModeOpen,
     inputRef,
     handleInputChange,
+    typedText
   };
 };
