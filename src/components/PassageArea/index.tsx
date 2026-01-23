@@ -145,9 +145,9 @@ export const PassageArea = ({
               }
             }}
           >
-            Start Typing Test
+            Iniciar Teste de Digitação
           </button>
-          <p>Or click the text and start typing</p>
+          <p>Ou clique no texto e comece a digitar</p>
         </div>
       ) : null}
     </section>

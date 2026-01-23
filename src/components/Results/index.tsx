@@ -12,14 +12,14 @@ interface ResultsProps {
 }
 
 const getResultDescription = (resultMessage: string) => {
-  if (resultMessage === "Test Complete!") {
-    return "Solid run. Keep pushing to beat your high score.";
+  if (resultMessage === "Teste Concluído!") {
+    return "Bela rodada. Continue treinando para bater seu recorde.";
   }
-  if (resultMessage === "Baseline Estabilished!") {
-    return "You've set the bar. Now the real challenge begins - time to beat it.";
+  if (resultMessage === "Ponto de partida definido!") {
+    return "Marca estabelecida. O desafio começou — supere seu tempo.";
   }
-  if (resultMessage === "High Score Smashed!") {
-    return "You're getting faster. That was incredible typing.";
+  if (resultMessage === "Recorde Superado!") {
+    return "Você está cada vez mais rápido. Mandou muito bem!";
   }
   return null;
 };
@@ -28,10 +28,10 @@ const getAccuracyClass = (accuracy: number) =>
   `${accuracy === 100 ? "value-green" : "value-red"}`;
 
 const getButtonLabel = (resultMessage: string) =>
-  resultMessage === "Test Complete!" ? "Go Again" : "Beat This Score";
+  resultMessage === "Teste Concluído!" ? "Jogar novamente" : "Bata este recorde";
 
 const isHighScore = (resultMessage: string) =>
-  resultMessage === "High Score Smashed!";
+  resultMessage === "Recorde Superado!";
 
 export const Results = ({
   accuracy,
@@ -69,23 +69,23 @@ export const Results = ({
       <p className="results-title">
         {resultMessage}
       </p>
-      {description && <p>{description}</p>}
+      {description && <p className="results-description">{description}</p>}
 
       <div className="results-stats">
         <div className="result-box">
-          <p className="stat-label">WPM:</p>
+          <p className="stat-label">PPM:</p>
           <p className="stat-value wpm">{wpm.toFixed(0)}</p>
         </div>
 
         <div className="result-box">
-          <p className="stat-label">Accuracy:</p>
+          <p className="stat-label">Precisão:</p>
           <p className={`${getAccuracyClass(accuracy)} stat-value`}>
             {accuracy.toFixed(0)}%
           </p>
         </div>
 
         <div className="result-box">
-          <p className="stat-label">Characters</p>
+          <p className="stat-label">Caracteres</p>
           <p className="stat-value">
             <span className="value-green">{correctChars}</span>/
             <span className="value-red">{incorrectChars}</span>

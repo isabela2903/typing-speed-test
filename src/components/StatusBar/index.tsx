@@ -44,27 +44,27 @@ export const StatusBar = ({
 
   const difficultyLabel =
     difficulty === "easy"
-      ? "Easy"
+      ? "Fácil"
       : difficulty === "medium"
-      ? "Medium"
-      : "Hard";
+      ? "Médio"
+      : "Difícil";
 
-  const modeLabel = mode === "timed" ? "Timed (30s)" : "Passage";
+  const modeLabel = mode === "timed" ? "Cronometrado (30s)" : "Infinito";
 
   return (
     <section className="status-bar">
       <div className="metrics">
         <p>
-          WPM: <span className="metric-value base">{wpm.toFixed(0)}</span>
+          PPM: <span className="metric-value base">{wpm.toFixed(0)}</span>
         </p>
         <p className="metric-with-border">
-          Accuracy:{" "}
+          Precisão:{" "}
           <span className={`metric-value ${hasStarted ? "accuracy" : "base"}`}>
             {accuracy.toFixed(0)}%
           </span>
         </p>
         <p>
-          Time:{" "}
+          Tempo:{" "}
           <span className={`metric-value ${hasStarted ? "time" : "base"}`}>
             {formatTime()}
           </span>
@@ -96,7 +96,7 @@ export const StatusBar = ({
                 <span
                   className={`radio ${difficulty === "easy" ? "checked" : ""}`}
                 />
-                <span>Easy</span>
+                <span>Fácil</span>
               </button>
               <button
                 className="dropdown-item with-border"
@@ -110,7 +110,7 @@ export const StatusBar = ({
                     difficulty === "medium" ? "checked" : ""
                   }`}
                 />
-                <span>Medium</span>
+                <span>Médio</span>
               </button>
               <button
                 className="dropdown-item with-border"
@@ -122,7 +122,7 @@ export const StatusBar = ({
                 <span
                   className={`radio ${difficulty === "hard" ? "checked" : ""}`}
                 />
-                <span>Hard</span>
+                <span>Difícil</span>
               </button>
             </div>
           )}
@@ -152,7 +152,7 @@ export const StatusBar = ({
                 <span
                   className={`radio ${mode === "timed" ? "checked" : ""}`}
                 />
-                <span>Timed (30s)</span>
+                <span>Cronometrado (30s)</span>
               </button>
               <button
                 className="dropdown-item with-border"
@@ -164,7 +164,7 @@ export const StatusBar = ({
                 <span
                   className={`radio ${mode === "passage" ? "checked" : ""}`}
                 />
-                <span>Passage</span>
+                <span>Infinito</span>
               </button>
             </div>
           )}
@@ -173,43 +173,43 @@ export const StatusBar = ({
 
        <div className="controls large">
         <div className="difficulty-group">
-          <p className="label">Difficult:</p>
+          <p className="label">Dificuldade:</p>
 
 
           <button
             className={`btn ${difficulty === "easy" ? "selected" : ""}`}
             onClick={() => setDifficulty("easy")}
           >
-            Easy
+            Fácil
           </button>
           <button
             className={`btn ${difficulty === "medium" ? "selected" : ""}`}
             onClick={() => setDifficulty("medium")}
           >
-            Medium
+            Médio
           </button>
           <button
             className={`btn ${difficulty === "hard" ? "selected" : ""}`}
             onClick={() => setDifficulty("hard")}
           >
-            Hard
+            Difícil
           </button>
         </div>
 
 
         <div className="mode-group">
-          <p className="label">Mode:</p>
+          <p className="label">Modo:</p>
           <button
             className={`btn ${mode === "timed" ? "selected" : ""}`}
             onClick={() => setMode("timed")}
           >
-            Timed (30s)
+            Cronometrado (30s)
           </button>
           <button
             className={`btn ${mode === "passage" ? "selected" : ""}`}
             onClick={() => setMode("passage")}
           >
-            Passage
+            Infinito
           </button>
         </div>
       </div>

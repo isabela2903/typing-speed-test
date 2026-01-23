@@ -46,6 +46,10 @@
   margin-bottom: 0.5rem;
 }
 
+.results-description {
+    text-align: center;
+  }
+
 .results-stats {
   margin-top: 1.5rem;
   display: flex;

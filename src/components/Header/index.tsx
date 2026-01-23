@@ -12,8 +12,8 @@ export const Header = ({personalBest}: HeaderProps) => {
 
       <div className="personal-best">
         <img src="./images/icon-personal-best.svg" className="personal-best-icon" />
-        <p className="personal-best-text small">Best: <span className="personal-best-value">{personalBest.toFixed(0)} WPM</span></p>
-        <p className="personal-best-text large">Personal best: <span className="personal-best-value">{personalBest.toFixed(0)} WPM</span></p>
+        <p className="personal-best-text small">Recorde: <span className="personal-best-value">{personalBest.toFixed(0)} PPM</span></p>
+        <p className="personal-best-text large">Recorde pessoal: <span className="personal-best-value">{personalBest.toFixed(0)} PPM</span></p>
       </div>
     </header>
   );

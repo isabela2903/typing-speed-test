@@ -36,8 +36,8 @@ export const useTyping = () => {
   const wpm = timeElapsed === 0 ? 0 : totalCharsTyped / 5 / (timeElapsed / 60);
 
   const shouldShowConfetti =
-    resultMessage === "Baseline Estabilished!" ||
-    resultMessage === "High Score Smashed!";
+    resultMessage === "Ponto de partida definido!" ||
+    resultMessage === "Recorde Superado!";
 
   const resetTypingStats = () => {
     setTypedText(0);
@@ -77,16 +77,16 @@ export const useTyping = () => {
     if (!savedPersonalBest) {
       localStorage.setItem("personal-best", String(finalWpm));
       setPersonalBest(finalWpm);
-      setResultMessage("Baseline Estabilished!");
+      setResultMessage("Ponto de partida definido!");
     } else {
       const previous = Number(savedPersonalBest);
 
       if (finalWpm > previous) {
         localStorage.setItem("personal-best", String(finalWpm));
         setPersonalBest(finalWpm);
-        setResultMessage("High Score Smashed!");
+        setResultMessage("Recorde Superado!");
       } else {
-        setResultMessage("Test Complete!");
+        setResultMessage("Teste Concluído!");
       }
     }
 

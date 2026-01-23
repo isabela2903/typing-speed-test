@@ -12,7 +12,7 @@ export const Footer = ({ hasStarted, resetHandleClick, isFinished }: FooterProps
   return (
     <footer className="footer">
       <button className="restart-btn" onClick={resetHandleClick}>
-        Restart Test
+        Reiniciar Teste
         <img src="./images/icon-restart.svg" className="restart-icon" alt="Restart icon" />
       </button>
     </footer>
